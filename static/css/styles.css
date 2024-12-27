@@ -1,0 +1,80 @@
+/* General Styles */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #9fdffc;
+    margin: 0;
+    padding: 20px;
+}
+
+h1 {
+    color: #333;
+    text-align: center;
+}
+
+/* Flexbox Container for Blog Posts */
+.post-container {
+    display: flex;
+    flex-wrap: wrap; 
+    justify-content: space-between; 
+    margin: 0 -10px; 
+}
+
+/* Individual Post Styles */
+.post {
+    background: #f69cd6;
+    margin: 10px; 
+    padding: 15px;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    flex: 1 1 calc(30% - 20px);
+    box-sizing: border-box; 
+}
+
+/* Responsive Styles */
+@media (max-width: 50%) {
+    .post {
+        flex: 1 1 calc(45% - 20px); 
+    }
+}
+
+@media (max-width: 50%) {
+    .post {
+        flex: 1 1 100%; 
+    }
+}
+
+/* Button Styles */
+button {
+    background-color: #007BFF;
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #0056b3;
+}
+
+/* Comment Section Styles */
+.comment-section {
+    margin-top: 20px;
+}
+
+.comment-section h2 {
+    margin-bottom: 10px;
+}
+
+.comment-section ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.comment-section li {
+    background: #fff;
+    margin: 10px 0;
+    padding: 10px;
+    border-radius: 5px;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+}

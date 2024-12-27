@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+    <title>Create Post</title>
+</head>
+<body>
+    <h1>Create New Post</h1>
+    {% load cache %}
+    {% cache 600 post_create %}
+    <form method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Save Post</button>
+    </form>
+    <a href="{% url 'post_list' %}">Back to Posts</a>
+    {% endcache %}
+</body>
+</html>

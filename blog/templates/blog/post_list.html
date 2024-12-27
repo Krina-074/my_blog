@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device -scale=1.0">
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+    <title>Blog Posts</title>
+</head>
+
+<body>
+    <h1>Blog Posts</h1>
+    {% load cache %}
+    {% cache 600 post_list %}
+    <div class="post-container">
+    <a href="{% url 'post_create' %}">Create New Post</a>
+    {% for post in posts %}
+    <div class="post">
+        <h2>{{ post.title }}</h2>
+        <p>{{ post.content }}</p>
+        {% if post.image %}
+        <img src="{{ post.image.url }}" alt="Post Image">
+        {% endif %}
+        <p>Posted on: {{ post.created_at }}</p>
+        <a href="{% url 'post_detail' post.id %}">
+            <button>View Details</button>
+        </a>
+    </div>
+    {% endfor %}
+    </div>
+    {% endcache %}
+</body>
+
+</html>
